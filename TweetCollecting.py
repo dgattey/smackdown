@@ -1,4 +1,4 @@
-# Use: python TweetCollecting.py -term1 "coldplay" -term2 "beyonce"
+# Use: python TweetCollecting.py -term1 coldplay -term2 beyonce
 
 
 import argparse
@@ -67,6 +67,9 @@ def fetch_samples(term1, term2):
     for line in response:
         i+=1
         line = json.loads(line)['text']
+        line = line.lower().strip()
+        if term1 in line and term2 in line:
+            continue
         if term1 in line: 
             print line
             term1buf.append(line)

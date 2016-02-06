@@ -1,3 +1,6 @@
+# Use: python TweetCollecting.py -term1 "coldplay" -term2 "beyonce"
+
+
 import argparse
 import oauth2 as oauth
 import urllib2 as urllib
@@ -65,8 +68,6 @@ def fetch_samples(term1, term2):
         line = json.loads(line)['text']
         if term1 in line or term2 in line:
             print line
-        
-
 
 
 if __name__ == '__main__':

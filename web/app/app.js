@@ -10,7 +10,9 @@ var RESOURCE = '//localhost:5000';
 			providers: [ng.http.HTTP_PROVIDERS]
 		})
 		.Class({
-			constructor: function(){}
+			constructor: function(){
+				this.live = 'Live Matchup!';
+			}
 		});
 
 		// Start the app

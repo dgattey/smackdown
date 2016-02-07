@@ -21,8 +21,7 @@ var Meter = ng.core.Component({
 			hideMinMax: true,
 			hideValue: true,
 			pointer: true,
-			levelColors: this.config.colors,
-			label: 'Live matchup!'
+			levelColors: this.config.colors
 		});
 		this.changeValue(val);
 	}],
@@ -33,8 +32,8 @@ var Meter = ng.core.Component({
 		.map(function(res){return res.json();})
 		.subscribe(function(value){
 			self.teams = [];
-			self.teams[0] = value[0].desc;
-			self.teams[1] = value[1].desc;
+			self.teams[0] = value.team1.desc;
+			self.teams[1] = value.team2.desc;
 		});
 	},
 

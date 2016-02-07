@@ -1,6 +1,6 @@
 # Use: python TweetCollecting.py -term1 coldplay -term2 beyonce
 
-
+import string
 import argparse
 import oauth2 as oauth
 import urllib2 as urllib

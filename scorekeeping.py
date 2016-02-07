@@ -5,7 +5,7 @@ import json
 
 historylen = 1000
 # number of tweets, and number of scores.
-num_intervals = 3   # how many time intervals do we keep data for?
+num_intervals = 6   # how many time intervals do we keep data for?
 interval = 60       # start using 1 minute as a time interval
 #score_table_a = [[0, 0]]*num_intervals # each entry in this table is [# of tweets, total score]
 # not recording the number of tweets now. Each entry is the total score for that interval

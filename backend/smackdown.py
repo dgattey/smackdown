@@ -14,8 +14,8 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-term1={"term": "panthers", "related":"carolina,newton,cameronnewton,j_no24,norman,beatthepanthers,broncoscountry", "desc": "Carolina Panthers"}
-term2={"term": "broncos", "related":"manning,miller,keeppounding,beatthebroncos", "desc": "Denver Broncos"}
+term1={"term": "panthers", "related":"carolina,newton,cameronnewton,norman,beatthepanthers,broncoscountry", "desc": "Carolina Panthers"}
+term2={"term": "broncos", "related":"manning,miller,keeppounding,beatthebroncos, peyton", "desc": "Denver Broncos"}
 
 # term1={"term": "trump", "related":"donald,realdonaldtrump,makeamercicangreatagain", "desc": "Donald Trump"}
 # term2={"term": "cruz", "related":"ted,tedcruz,cruzcrew", "desc": "Ted Cruz"}

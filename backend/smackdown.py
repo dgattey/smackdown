@@ -17,11 +17,11 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 term1={"term": "panthers", "related":"carolina,newton,norman", "desc": "Carolina Panthers"}
 term2={"term": "broncos", "related":"denver,manning,miller", "desc": "Denver Broncos"}
 
-term1={"term": "trump", "related":"", "desc": "Donald Trump"}
-term2={"term": "cruz", "related":"", "desc": "Ted Cruz"}
+# term1={"term": "trump", "related":"donald,realdonaldtrump,makeamercicangreatagain", "desc": "Donald Trump"}
+# term2={"term": "cruz", "related":"ted, tedcruz,cruzcrew", "desc": "Ted Cruz"}
 
-# term1={"term": "clinton", "desc": "Hillary Clinton"}
-# term1={"term": "sanders", "desc": "Bernie Sanders"}
+# term1={"term": "clinton", "related":"bernie", "desc": "Hillary Clinton"}
+# term1={"term": "sanders", "related":"hillary", "desc": "Bernie Sanders"}
 
 
 meter = 50.0

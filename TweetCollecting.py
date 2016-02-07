@@ -57,13 +57,14 @@ def twitterreq(url, method, parameters):
 
     return response
 
+term1buf = []
+term2buf = []
+
 def fetch_samples(term1, term2):
     url = "https://stream.twitter.com/1.1/statuses/sample.json?language=en"
     parameters = []
     response = twitterreq(url, "GET", parameters)
-    term1buf = []
-    term2buf = []
-    i = 0
+
     for line in response:
         
         line = json.loads(line)
@@ -72,11 +73,18 @@ def fetch_samples(term1, term2):
             continue
         if term1 in line: 
             term1buf.append(line)
-            return term1buf, term2buf
         if term2 in line: 
             term2buf.append(line)
-            return term1buf, term2buf
         
+def returnBuf():
+    global term1buf 
+    global term2buf 
+
+    toReturn = (term1buf, term2buf)
+    term1buf= []
+    term2buf= []
+    print toReturn
+    return toReturn
 
 
 

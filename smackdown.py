@@ -47,7 +47,7 @@ def getTerms():
 
 		meter = scorekeeping.add_score(term1score, term2score)
 		print meter
-		time.sleep(5)
+		time.sleep(3)
 
 
 

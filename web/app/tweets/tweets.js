@@ -11,7 +11,9 @@ var Tweets = ng.core.Component({
 		var self = this;
 		setInterval(function() {
 			Http.get(RESOURCE+'/lastTweets')
-			.map(function(res){return res.json();})
+			.map(function(res){
+				return Array.from(new Set(res.json()));
+			})
 			.subscribe(function(value){
 				self.tweets = value;
 			});

@@ -74,6 +74,12 @@ h1 {
 	text-align: center;
 }
 
+.tweets h1 {
+	color: #999;
+	margin-top: -8px;
+	text-align: right;
+}
+
 .recent-meter h3 {
 	text-align: center;
 	font-size: 1.5em;

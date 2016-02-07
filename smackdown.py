@@ -34,6 +34,11 @@ smackDict = smack_score.build_dict()
 def get_score():
 	return str(meter)
 
+@app.route("/lastTweets")
+@cross_origin()
+def get_lastTweets():
+    return str(TweetCollecting.lastTweets())
+
 @app.route("/history")
 @cross_origin()
 def get_history():

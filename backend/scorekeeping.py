@@ -34,7 +34,7 @@ def add_score(score_a, score_b):
 	# now update the current scores
 	score_table_a[-1] += score_a
 	score_table_b[-1] += score_b
-	score_now(now)
+	return score_now(now)
 
 
 # outputs a number from 0 to 100 that the dial should have

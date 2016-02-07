@@ -7,6 +7,7 @@ import urllib2 as urllib
 import json
 import sys
 import csv
+import smack_score
 
 # See Assignment 1 instructions for how to get these credentials
 access_token_key = "860765546-2UbcgzBroe1J89vv76uC6Afjxz0gxvaaEGAWqFfU"
@@ -84,13 +85,13 @@ def fetch_samples(term1, term1related, term2, term2related):
                 term1buf.append(line)
                 last20.append(orline)
                 last20 = last20[-20:]
-                continue  
+                break  
         for t2 in term2related:
             if t2 in line:
                 term2buf.append(line)
                 last20.append(orline)
                 last20 = last20[-20:]
-                continue                
+                break                
 
         
 def returnBuf():
@@ -105,7 +106,11 @@ def returnBuf():
     return toReturn
 
 def lastTweets():
-    j = json.dumps(last20) 
+    posTweets = []
+    for tweet in last20:
+        if smack_score.calc_smack_score(tweet, smackDict) > 0:
+            posTweets.append(tweet)
+    j = json.dumps(posTweets) 
     return j
 
 

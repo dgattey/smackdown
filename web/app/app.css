@@ -37,9 +37,16 @@ h1 {
 
 /* Meter */
 .recent-meter {
-	top:100px;
-	bottom:200px;
-	overflow:hidden;
+	top: 100px;
+	bottom: 200px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.recent-meter h3 {
+	text-align: center;
+	font-size: 1.5em;
+	margin-top: 40px;
 }
 
 /* History */
@@ -52,7 +59,4 @@ h1 {
 .chart {
 	width: 500px;
 	height: 100px;
-	border-left: 1px dotted #555;
-	border-bottom: 1px dotted #555;
-	padding: 20px 20px 20px 0;
 }

@@ -1,21 +1,23 @@
 {
-    "name": "smackdown",
-        "version": "1.0.0",
-        "scripts": {
-            "start": "npm run lite",
-            "lite": "lite-server"
-        },
-        "license": "ISC",
-        "dependencies": {
-            "angular2": "2.0.0-beta.3",
-            "es6-promise": "^3.0.2",
-            "es6-shim": "^0.33.3",
-            "reflect-metadata": "0.1.2",
-            "rxjs": "5.0.0-beta.0",
-            "zone.js": "0.5.11"
-        },
-        "devDependencies": {
-            "concurrently": "^1.0.0",
-            "lite-server": "^2.0.1"
-        }
+  "name": "smackdown",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm run lite",
+    "lite": "lite-server"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "angular2": "2.0.0-beta.3",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "justgage": "^1.2.2",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "svg-dial": "^1.0.8",
+    "zone.js": "0.5.11"
+  },
+  "devDependencies": {
+    "concurrently": "^1.0.0",
+    "lite-server": "^2.0.1"
+  }
 }

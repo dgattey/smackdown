@@ -55,5 +55,7 @@ def score_now(time):
 	history.append((time, score))
 	return score
 
+def get_history():
+	return history
 
 

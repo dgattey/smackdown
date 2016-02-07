@@ -1,0 +1,50 @@
+/* COMMON */
+
+html, body {
+	font-family: 'Roboto', sans-serif;
+	background-color: #fff;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+/* SHARED */
+
+.title, .recent-meter, .history {
+	position: absolute;
+	right: 0;
+	left: 0;
+}
+
+
+/* Title */
+.title {
+	background-color: #008;
+	padding: 0;
+	margin: 0;
+	height:70px;
+	top:0;
+}
+
+.title h1 {
+	color: #fff;
+	padding: 10px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding-top: 30px;
+}
+
+/* Meter */
+.recent-meter {
+	top:100px;
+	bottom:100px;
+	overflow:hidden;
+}
+
+/* History */
+.history {
+	background-color: #ddd;
+	height: 200px;
+	bottom: 0;
+}

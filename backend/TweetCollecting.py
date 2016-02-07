@@ -83,15 +83,21 @@ def fetch_samples(term1, term1related, term2, term2related):
         for t1 in term1related and used == False:
             if t1 in line:
                 term1buf.append(line)
-                last20.append(orline)
 
-                last20 = last20[-20:]
+                if len(orline) > 0:
+                    last20.append(orline)
+
+                    last20 = last20[-20:]
                 used = True  
         for t2 in term2related and used == False:
             if t2 in line:
                 term2buf.append(line)
-                last20.append(orline)
-                last20 = last20[-20:]
+
+                if len(orline) > 0:
+                    last20.append(orline)
+
+                    last20 = last20[-20:]
+
                 used = True
                                 
 

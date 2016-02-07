@@ -5,11 +5,10 @@ var Meter = ng.core.Component({
 .Class({
 	constructor: [ng.http.Http, function(Http) {
 		this.startPolling(Http); // starts async requests for new values
+		this.getTeamInfo(Http);
 		this.min = 0.0;
 		this.max = 100.0;
-		var val = 55;
-		this.label = 'HEHE';
-		this.teams = ['Denver Broncos', 'Carolina Panthers'];
+		var val = 50;
 		this.config = {
 			texts: ['WHOA!', 'Woo!', 'Boring.', 'Well well!', 'Going DOWN!'],
 			colors: ['#ff3433', '#0077ff', '#7fff90', '#0077ff', '#ff3433']
@@ -22,10 +21,22 @@ var Meter = ng.core.Component({
 			hideMinMax: true,
 			hideValue: true,
 			pointer: true,
-			levelColors: this.config.colors
+			levelColors: this.config.colors,
+			label: 'Live matchup!'
 		});
 		this.changeValue(val);
 	}],
+
+	getTeamInfo: function(Http) {
+		var self = this;
+		Http.get(RESOURCE+'/info')
+		.map(function(res){return res.json();})
+		.subscribe(function(value){
+			self.teams = [];
+			self.teams[0] = value[0].desc;
+			self.teams[1] = value[1].desc;
+		});
+	},
 
 	scaleValue: function(rawValue, min, max) {
 		var val = rawValue - min;
@@ -45,7 +56,7 @@ var Meter = ng.core.Component({
 	},
 
 	setStatus: function(segment) {
-		if (segment == 2) this.status = 'no team has an edge.';
+		if (segment == 2) this.status = 'No team has an edge.';
 		else {
 			var team = (segment > 2 ? this.teams[0] : this.teams[1]);
 			this.status = team+' are getting smacked!';

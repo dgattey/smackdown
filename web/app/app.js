@@ -1,4 +1,4 @@
-var TIMEOUT = 1000;
+var TIMEOUT = 2000;
 var RESOURCE = '//localhost:5000';
 
 (function(app) {

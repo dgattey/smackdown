@@ -7,6 +7,9 @@ html, body {
 
 h1 {
 	font-size: 3em;
+	color: #fff;
+	font-weight: 700;
+	text-transform: uppercase;
 }
 
 /* SHARED */
@@ -28,10 +31,7 @@ h1 {
 }
 
 .title h1 {
-	color: #fff;
 	padding: 10px;
-	font-weight: 700;
-	text-transform: uppercase;
 	padding-top: 30px;
 }
 
@@ -41,22 +41,34 @@ h1 {
 	bottom: 200px;
 	overflow: hidden;
 	margin: 0 auto;
+	padding-bottom: 40px;
 }
 
 .recent-meter h3 {
 	text-align: center;
-	font-size: 1.5em;
+	font-size: 1.8em;
+	margin: 0 auto;
 	margin-top: 40px;
+	width: 400px;
+	text-align: center;
+	line-height: 1em;
+	margin-bottom: 0;
 }
 
 /* History */
 .recent-history {
-	background-color: #ddd;
+	background-color: #002;
 	height: 200px;
 	bottom: 0;
 }
 
-.chart {
-	width: 500px;
-	height: 100px;
+.recent-history h1 {
+	position: absolute;
+	right: 20px;
+	top: -8px;
+}
+
+.recent-history #svg {
+	min-width: 100%;
+	height: 200px;
 }

@@ -6,14 +6,15 @@ from flask.ext.cors import CORS, cross_origin
 import TweetCollecting
 import smack_score
 import scorekeeping
+import json
 
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-term1="trump"
-term2="cruz"
+term1={"term": "panthers", "desc": "Carolina Panthers"}
+term2={"term": "broncos", "desc": "Denver Broncos"}
 
 meter = 50.0
 smackDict = smack_score.build_dict()
@@ -29,11 +30,16 @@ def get_score():
 def get_history():
     return str(scorekeeping.get_history())
 
+@app.route("/info")
+@cross_origin()
+def get_info():
+    return json.dumps({"team1": term1, "team2": term2})
+
 def basicTerms():
     t = threading.Thread(target=getTerms)
     t.daemon = True
     t.start()
-    return "Getting tweets for "+term1+", "+term2+"..."
+    return "Getting tweets for "+term1["term"]+", "+term2["term"]+"..."
 
 # Simple, calls fetch_samples, should be in a Thread
 def getTerms():
@@ -58,7 +64,7 @@ def getTerms():
 
 if __name__ == "__main__":
 
-    t= threading.Thread(target=TweetCollecting.fetch_samples, args = (term1, term2))
+    t= threading.Thread(target=TweetCollecting.fetch_samples, args = (term1["term"], term2["term"]))
     t.daemon = True
     t.start()
     t1= threading.Thread(target=getTerms)

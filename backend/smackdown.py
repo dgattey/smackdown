@@ -14,14 +14,14 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-term1={"term": "panthers", "related":"carolina,newton,norman", "desc": "Carolina Panthers"}
-term2={"term": "broncos", "related":"denver,manning,miller", "desc": "Denver Broncos"}
+term1={"term": "panthers", "related":"carolina,newton,norman,beatthepanthers,broncoscountry", "desc": "Carolina Panthers"}
+term2={"term": "broncos", "related":"denver,manning,miller,keeppounding,beatthebroncos", "desc": "Denver Broncos"}
 
 # term1={"term": "trump", "related":"donald,realdonaldtrump,makeamercicangreatagain", "desc": "Donald Trump"}
 # term2={"term": "cruz", "related":"ted, tedcruz,cruzcrew", "desc": "Ted Cruz"}
 
 # term1={"term": "clinton", "related":"bernie", "desc": "Hillary Clinton"}
-# term1={"term": "sanders", "related":"hillary", "desc": "Bernie Sanders"}
+# term2={"term": "sanders", "related":"hillary,hillaryclinton", "desc": "Bernie Sanders"}
 
 
 meter = 50.0

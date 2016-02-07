@@ -77,6 +77,9 @@ def fetch_samples(term1, term2):
             print line
             term2buf.append(line)
 
+    return term1buf, term2buf
+
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

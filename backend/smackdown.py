@@ -24,7 +24,13 @@ def getTerms():
     print("Starting fetching...")
     smackDict = smack_score.build_dict()
     while(True):
-	    term1, term2 = fetch_samples(term1, term2)
+	    term1buf, term2buf = fetch_samples(term1, term2)
+	    for tweet in term1Buf:
+	    	score = smack_score.calc_smack_score(tweet, smackDict)
+	    	term1score +=score
+	    for tweet in term2Buf:
+	    	score = smack_score.calc_smack_score(tweet, smackDict)
+	    	term2score +=score
 
 
 

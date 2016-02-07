@@ -9,10 +9,12 @@ var Tweets = ng.core.Component({
 
 	getTweets: function(Http) {
 		var self = this;
-		Http.get(RESOURCE+'/lastTweets')
-		.map(function(res){return res.json();})
-		.subscribe(function(value){
-			console.log(value);
-		});
+		setInterval(function() {
+			Http.get(RESOURCE+'/lastTweets')
+			.map(function(res){return res.json();})
+			.subscribe(function(value){
+				self.tweets = value;
+			});
+		}, TIMEOUT);
 	}
 });

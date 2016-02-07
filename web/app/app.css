@@ -45,13 +45,15 @@ h1 {
 
 /* Meter */
 .section-dial {
+	top: 0;
+	float: left;
 	width: 70%;
 	background: #fff;
 	display: inline-block;
 	margin: 0;
 }
 .section-tweets {
-	width: 29%;
+	width: 28%;
 	display: inline-block;
 	margin: 0;
 	overflow-y: scroll;

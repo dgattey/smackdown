@@ -108,7 +108,7 @@ def returnBuf():
 def lastTweets():
     posTweets = []
     for tweet in last20:
-        if smack_score.calc_smack_score(tweet, smackDict) > 0:
+        if smack_score.calc_smack_score(tweet) > 0:
             posTweets.append(tweet)
     j = json.dumps(posTweets) 
     return j

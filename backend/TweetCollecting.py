@@ -81,9 +81,10 @@ def returnBuf():
     global term2buf 
 
     toReturn = (term1buf, term2buf)
-    term1buf= []
-    term2buf= []
     print toReturn
+
+    term2buf = []
+    term1buf = []
     return toReturn
 
 

@@ -1,8 +1,8 @@
 import string
-
+smack_dict = {}
 ### Input: A string of a tweet, with either #panthers or #broncos
 ### Output: A "smack" sentiment score for the tweet. More positive = more smack
-def calc_smack_score(tweet, smack_dict):
+def calc_smack_score(tweet):
 
 	#Clean words in tweet
 	words = tweet.split()
@@ -24,11 +24,10 @@ def calc_smack_score(tweet, smack_dict):
 ### Returns a dictionary of words with negative sentiment (smackers)
 def build_dict():
 	sentiment_file = open('AFINN-111.txt')
-	smack_dict = {}
+	global smack_dict
 	for line in sentiment_file:
 		if len(line.split())==2:
 			word = line.split()[0]
 			score = float(line.split()[1])
 			if score < 0:
 				smack_dict[word] = score
-	return smack_dict

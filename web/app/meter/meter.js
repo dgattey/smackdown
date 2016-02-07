@@ -3,22 +3,17 @@ var Meter = ng.core.Component({
 	template: '<h3>{{label}} {{status}}</h3>'
 })
 .Class({
-	scaleValue: function(rawValue, min, max) {
-		var val = rawValue - min;
-		var range = max - min;
-		return val/range;
-	},
-
-	constructor: function() {
-		this.min = -100.0
-		this.max = 100.0
-		var val = 50;
+	constructor: [ng.http.Http, function(Http) {
+		this.startPolling(Http); // starts async requests for new values
+		this.min = 0.0;
+		this.max = 100.0;
+		var val = 55;
 		this.label = 'HEHE';
 		this.teams = ['Denver Broncos', 'Carolina Panthers'];
 		this.config = {
 			texts: ['WHOA!', 'Woo!', 'Boring.', 'Well well!', 'Going DOWN!'],
 			colors: ['#ff3433', '#0077ff', '#7fff90', '#0077ff', '#ff3433']
-		}
+		};
 		this.dial = new JustGage({
 			id: 'dial',
 			value: val,
@@ -30,6 +25,23 @@ var Meter = ng.core.Component({
 			levelColors: this.config.colors
 		});
 		this.changeValue(val);
+	}],
+
+	scaleValue: function(rawValue, min, max) {
+		var val = rawValue - min;
+		var range = max - min;
+		return val/range;
+	},
+
+	startPolling: function(Http) {
+		var self = this;
+		setInterval(function() {
+			var text = Http.get(RESOURCE+'/score')
+			.map(function(res){return res.text();})
+			.subscribe(function(value){
+				self.changeValue(value);
+			});
+		}, TIMEOUT);
 	},
 
 	setStatus: function(segment) {

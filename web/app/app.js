@@ -1,3 +1,6 @@
+var TIMEOUT = 1000;
+var RESOURCE = '//localhost:5000';
+
 (function(app) {
 	document.addEventListener('DOMContentLoaded', function() {
 		appComponent = ng.core.Component({
@@ -7,16 +10,7 @@
 			providers: [ng.http.HTTP_PROVIDERS]
 		})
 		.Class({
-			constructor: [ng.http.Http, function(Http) {
-				setInterval(function() {
-					var text = Http.get('//localhost:5000/score')
-					.map(function(res){
-						return res.text();
-					}).subscribe(function(result){
-						console.log(result);
-					});
-				}, 1000);
-			}]
+			constructor: function(){}
 		});
 
 		// Start the app

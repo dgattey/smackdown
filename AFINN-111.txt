@@ -239,6 +239,7 @@ bastard	-5
 bastards	-5
 battle	-1
 battles	-1
+beat 	-2
 beaten	-2
 beatific	3
 beating	-1
@@ -1306,6 +1307,7 @@ infuriating	-2
 inhibit	-1
 injured	-2
 injury	-2
+injure 	-2
 injustice	-2
 innovate	1
 innovates	1
@@ -1466,6 +1468,7 @@ looses	-3
 loser	-3
 losing	-3
 loss	-3
+lose 	-3
 lost	-3
 lovable	3
 love	3
@@ -2475,3 +2478,5 @@ yummy	3
 zealot	-2
 zealots	-2
 zealous	2
+rapsheet 	-4
+

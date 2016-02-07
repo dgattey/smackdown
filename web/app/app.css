@@ -45,11 +45,18 @@ h1 {
 
 /* Meter */
 .recent-meter {
-	top: 100px;
+	top: 75px;
 	bottom: 200px;
 	overflow: hidden;
 	margin: 0 auto;
 	padding-bottom: 40px;
+}
+
+.tip {
+	background: #999; 
+	color: white; 
+	padding: 20px; 
+	text-align: center;
 }
 
 .recent-meter h3 {

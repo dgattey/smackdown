@@ -79,19 +79,21 @@ def fetch_samples(term1, term1related, term2, term2related):
         line = line['text'].encode('utf-8').strip().lower()
         charsToRemove = string.punctuation
         line = ''.join(ch for ch in line if ch not in charsToRemove)
-        
-        for t1 in term1related:
+        used = False
+        for t1 in term1related and used == False:
             if t1 in line:
                 term1buf.append(line)
                 last20.append(orline)
+
                 last20 = last20[-20:]
-                break  
-        for t2 in term2related:
+                used = True  
+        for t2 in term2related and used == False:
             if t2 in line:
                 term2buf.append(line)
                 last20.append(orline)
                 last20 = last20[-20:]
-                break                
+                used = True
+                                
 
         
 def returnBuf():

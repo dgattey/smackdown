@@ -2478,4 +2478,5 @@ yummy	3
 zealot	-2
 zealots	-2
 zealous	2
+rapsheet 	-4
 

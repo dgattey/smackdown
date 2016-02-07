@@ -13,8 +13,17 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-term1={"term": "panthers", "desc": "Carolina Panthers"}
+# term1={"term": "happy", "desc": "Happy"}
+# term2={"term": "sad", "desc": "Sad"}
+
+term1={"term": "panthers", "related":"carolina, ", "desc": "Carolina Panthers"}
 term2={"term": "broncos", "desc": "Denver Broncos"}
+
+# term1={"term": "trump", "desc": "Donald Trump"}
+# term1={"term": "clinton", "desc": "Hillary Clinton"}
+
+# term1={"term": "carson", "desc": "Ben Carson"}
+# term2={"term": "cruz", "desc": "Ted Cruz"}
 
 meter = 50.0
 smackDict = smack_score.build_dict()

@@ -17,8 +17,12 @@ smackDict = smack_score.build_dict()
 
 # Starts a basic page, fetching samples
 @app.route("/score")
-def retstr():
+def get_score():
 	return str(meter)
+
+@app.route("/history")
+def get_history():
+    return str(scorekeeping.get_history())
 
 def basicTerms():
     t = threading.Thread(target=getTerms)

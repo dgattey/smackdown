@@ -6,7 +6,7 @@ var RESOURCE = '//smackdown.herokuapp.com';
 		appComponent = ng.core.Component({
 			selector: 'smack-app',
 			templateUrl: 'app/app.html',
-			directives: [Meter, History],
+			directives: [Meter, History, Tweets],
 			providers: [ng.http.HTTP_PROVIDERS]
 		})
 		.Class({

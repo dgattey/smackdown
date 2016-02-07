@@ -44,18 +44,31 @@ h1 {
 }
 
 /* Meter */
+.section-dial {
+	width: 70%;
+	background: #fff;
+	display: inline-block;
+	margin: 0;
+}
+.section-tweets {
+	width: 29%;
+	display: inline-block;
+	margin: 0;
+	overflow-y: scroll;
+}
 .recent-meter {
+	background: #ddd;
 	top: 75px;
 	bottom: 200px;
 	overflow: hidden;
 	margin: 0 auto;
-	padding-bottom: 40px;
+	padding-bottom: 30px;
 }
 
 .tip {
 	background: #999; 
 	color: white; 
-	padding: 20px; 
+	padding: 10px; 
 	text-align: center;
 }
 
@@ -63,7 +76,7 @@ h1 {
 	text-align: center;
 	font-size: 1.5em;
 	margin: 0 auto;
-	margin-top: 40px;
+	margin-top: 65px;
 	text-align: center;
 	line-height: 1em;
 	margin-bottom: 0;
@@ -86,7 +99,7 @@ h1 {
 	position: absolute;
 	bottom: 30px;
 	margin: 0;
-	left: 22%;
+	left: 5%;
 	text-align: center;
 }
 
@@ -98,7 +111,7 @@ h1 {
 	position: absolute;
 	bottom: 30px;
 	margin: 0;
-	right: 22%;
+	left: 45%;
 	text-align: center;
 }
 

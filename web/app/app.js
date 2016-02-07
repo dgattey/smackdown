@@ -1,5 +1,5 @@
 var TIMEOUT = 2000;
-var RESOURCE = '//localhost:5000';
+var RESOURCE = '//smackdown.herokuapp.com';
 
 (function(app) {
 	document.addEventListener('DOMContentLoaded', function() {

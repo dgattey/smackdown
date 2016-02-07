@@ -63,12 +63,36 @@ h1 {
 }
 
 .recent-meter #dial {
-	margin-top: -20px;
+	margin-top: -90px;
 }
 
 .recent-meter text {
 	text-transform: uppercase;
 	letter-spacing: 1.3px;
+}
+
+.recent-meter #left {
+	font-size: 1.2em;
+	text-transform: uppercase;
+	letter-spacing: 1.2px;
+	color: #42acff;
+	position: absolute;
+	bottom: 30px;
+	margin: 0;
+	left: 22%;
+	text-align: center;
+}
+
+.recent-meter #right {
+	font-size: 1.2em;
+	text-transform: uppercase;
+	letter-spacing: 1.2px;
+	color: #ff671a;
+	position: absolute;
+	bottom: 30px;
+	margin: 0;
+	right: 22%;
+	text-align: center;
 }
 
 /* History */

@@ -1,17 +1,18 @@
 var Meter = ng.core.Component({
 	selector: 'recent-meter',
-	template: '<h3>{{label}} {{status}}</h3>'
+	template: '<h3>{{label}} {{status}}</h3><p id="left">{{teams[0]}}</p><p id="right">{{teams[1]}}</p>'
 })
 .Class({
 	constructor: [ng.http.Http, function(Http) {
 		this.startPolling(Http); // starts async requests for new values
 		this.getTeamInfo(Http);
+		this.teams = [];
 		this.min = 0.0;
 		this.max = 100.0;
 		var val = 50;
 		this.config = {
 			texts: ['WHOA!', 'Woo!', 'Boring.', 'Well well!', 'Going DOWN!'],
-			colors: ['#ff3433', '#0077ff', '#7fff90', '#0077ff', '#ff3433']
+			colors: ['#ff671a', '#555555', '#42acff']
 		};
 		this.dial = new JustGage({
 			id: 'dial',
@@ -31,7 +32,6 @@ var Meter = ng.core.Component({
 		Http.get(RESOURCE+'/info')
 		.map(function(res){return res.json();})
 		.subscribe(function(value){
-			self.teams = [];
 			self.teams[0] = value.team1.desc;
 			self.teams[1] = value.team2.desc;
 		});
@@ -57,7 +57,7 @@ var Meter = ng.core.Component({
 	setStatus: function(segment) {
 		if (segment == 2) this.status = 'No team has an edge.';
 		else {
-			var team = (segment > 2 ? this.teams[0] : this.teams[1]);
+			var team = (segment > 2 ? this.teams[1] : this.teams[0]);
 			this.status = team+' are getting smacked!';
 		}
 	},

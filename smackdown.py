@@ -3,6 +3,7 @@ import threading
 from flask import Flask
 from TweetCollecting import fetch_samples
 import smack_score
+import scorekeeping.py
 
 app = Flask(__name__)
 
@@ -10,6 +11,7 @@ term1="trump"
 term2="beyonce"
 term1score = 0.0
 term2score = 0.0
+meter = 50.0
 
 # Starts a basic page, fetching samples
 @app.route("/")
@@ -31,6 +33,8 @@ def getTerms():
 	    for tweet in term2Buf:
 	    	score = smack_score.calc_smack_score(tweet, smackDict)
 	    	term2score +=score
+
+	    meter = scorekeeping.add_score(term1score, term2score)
 
 
 

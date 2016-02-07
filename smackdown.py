@@ -18,10 +18,10 @@ term1={"term": "panthers", "related":"carolina,newton,norman", "desc": "Carolina
 term2={"term": "broncos", "related":"denver,manning,miller", "desc": "Denver Broncos"}
 
 # term1={"term": "trump", "related":"donald,realdonaldtrump,makeamercicangreatagain", "desc": "Donald Trump"}
-# term2={"term": "cruz", "related":"ted, tedcruz,cruzcrew", "desc": "Ted Cruz"}
+# term2={"term": "cruz", "related":"ted,tedcruz,cruzcrew", "desc": "Ted Cruz"}
 
-# term1={"term": "clinton", "related":"hillary","hillaryclinton" "desc": "Hillary Clinton"}
-# term2={"term": "sanders", "related":"bernie","sensanders","berniesanders" "desc": "Bernie Sanders"}
+# term1={"term": "clinton", "related":"hillary,hillaryclinton" "desc": "Hillary Clinton"}
+# term2={"term": "sanders", "related":"bernie,sensanders,berniesanders" "desc": "Bernie Sanders"}
 
 
 meter = 50.0

@@ -49,6 +49,9 @@ def score_now(time):
 	a = float(a)
 	b = float(b)
 	score = ((b/(a+b))*100)
+	global history
 	history.append((time, score))
 	return score
+
+
 

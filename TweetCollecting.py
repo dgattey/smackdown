@@ -61,6 +61,7 @@ def twitterreq(url, method, parameters):
 term1buf = []
 term2buf = []
 last20 = []
+i = 0
 
 def fetch_samples(term1, term1related, term2, term2related):
     url = "https://stream.twitter.com/1.1/statuses/sample.json?language=en"
@@ -73,32 +74,47 @@ def fetch_samples(term1, term1related, term2, term2related):
     global last20
     print term1related, term2related
     for line in response:
-        
         line = json.loads(line)
         orline = line['text'].encode('utf-8')
         line = line['text'].encode('utf-8').strip().lower()
         charsToRemove = string.punctuation
         line = ''.join(ch for ch in line if ch not in charsToRemove)
         used = False
-        for t1 in term1related and used == False:
-            if t1 in line:
-                term1buf.append(line)
+        global i
+        i += 1
+        if i%2 == 0:
+            for t1 in term1related:
+                if t1 in line and used == False:
+                    term1buf.append(line)
+                    if len(orline) > 0:
+                        last20.append(orline)
+                        last20 = last20[-20:]
+                    used = True 
 
-                if len(orline) > 0:
-                    last20.append(orline)
+            for t2 in term2related:
+                if t2 in line and used == False:
+                    term2buf.append(line)
+                    if len(orline) > 0:
+                        last20.append(orline)
+                        last20 = last20[-20:]
+                    used = True
+        else:
+            for t2 in term2related:
+                if t2 in line and used == False:
+                    term2buf.append(line)
+                    if len(orline) > 0:
+                        last20.append(orline)
+                        last20 = last20[-20:]
 
-                    last20 = last20[-20:]
-                used = True  
-        for t2 in term2related and used == False:
-            if t2 in line:
-                term2buf.append(line)
+                    used = True
+            for t1 in term1related:
+                if t1 in line and used == False:
+                    term1buf.append(line)
+                    if len(orline) > 0:
+                        last20.append(orline)
+                        last20 = last20[-20:]
+                    used = True 
 
-                if len(orline) > 0:
-                    last20.append(orline)
-
-                    last20 = last20[-20:]
-
-                used = True
                                 
 
         

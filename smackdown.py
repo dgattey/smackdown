@@ -15,7 +15,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 term1={"term": "panthers", "related":"carolina,newton,cameronnewton,norman,beatthepanthers,broncoscountry", "desc": "Carolina Panthers"}
-term2={"term": "broncos", "related":"manning,miller,keeppounding,beatthebroncos, peyton", "desc": "Denver Broncos"}
+term2={"term": "broncos", "related":"keeppounding,beatthebroncos, peyton, manning", "desc": "Denver Broncos"}
 
 # term1={"term": "trump", "related":"donald,realdonaldtrump,makeamercicangreatagain", "desc": "Donald Trump"}
 # term2={"term": "cruz", "related":"ted,tedcruz,cruzcrew", "desc": "Ted Cruz"}
@@ -31,7 +31,7 @@ meter = 50.0
 @app.route("/score")
 @cross_origin()
 def get_score():
-	return str(meter)
+    return str(meter)
 
 @app.route("/lastTweets")
 @cross_origin()
@@ -61,18 +61,18 @@ def getTerms():
     global meter
     while(True):
 
-		term1score = 0.0
-		term2score = 0.0
-		term1Buf, term2Buf = TweetCollecting.returnBuf()
-		for tweet in term1Buf:
-			term1score += smack_score.calc_smack_score(tweet)
+        term1score = 0.0
+        term2score = 0.0
+        term1Buf, term2Buf = TweetCollecting.returnBuf()
+        for tweet in term1Buf:
+            term1score += smack_score.calc_smack_score(tweet)
 
-		for tweet in term2Buf:
-			term2score += smack_score.calc_smack_score(tweet)
+        for tweet in term2Buf:
+            term2score += smack_score.calc_smack_score(tweet)
 
-		meter = scorekeeping.add_score(term1score, term2score)
-		print meter
-		time.sleep(3)
+        meter = scorekeeping.add_score(term1score, term2score)
+        print meter
+        time.sleep(3)
 
 
 
@@ -89,4 +89,3 @@ if __name__ == "__main__":
 
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
-

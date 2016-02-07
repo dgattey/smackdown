@@ -2,12 +2,15 @@ import os
 import threading
 import time
 from flask import Flask
+from flask.ext.cors import CORS, cross_origin
 import TweetCollecting
 import smack_score
 import scorekeeping
 
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 term1="trump"
 term2="cruz"
@@ -17,10 +20,12 @@ smackDict = smack_score.build_dict()
 
 # Starts a basic page, fetching samples
 @app.route("/score")
+@cross_origin()
 def get_score():
 	return str(meter)
 
 @app.route("/history")
+@cross_origin()
 def get_history():
     return str(scorekeeping.get_history())
 
@@ -62,4 +67,4 @@ if __name__ == "__main__":
 
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
-    
+

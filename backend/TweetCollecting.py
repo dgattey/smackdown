@@ -74,7 +74,7 @@ def fetch_samples(term1, term1related, term2, term2related):
     for line in response:
         
         line = json.loads(line)
-        orline = line
+        orline = line['text'].encode('utf-8')
         line = line['text'].encode('utf-8').strip().lower()
         charsToRemove = string.punctuation
         line = ''.join(ch for ch in line if ch not in charsToRemove)
@@ -105,12 +105,8 @@ def returnBuf():
     return toReturn
 
 def lastTweets():
-    retdict = {}
-    for i in range(20):
-        retdict[i] = last20[i]
-    return json.dumps(retdict, ensure_ascii=False)
-
-
+    j = json.dumps(last20) 
+    return j
 
 
 if __name__ == '__main__':

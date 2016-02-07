@@ -60,23 +60,29 @@ def twitterreq(url, method, parameters):
 term1buf = []
 term2buf = []
 
-def fetch_samples(term1, term2):
+def fetch_samples(term1, term1related, term2, term2related):
     url = "https://stream.twitter.com/1.1/statuses/sample.json?language=en"
     parameters = []
     response = twitterreq(url, "GET", parameters)
-
+    term1related = term1related.split(',')
+    term2related = term2related.split(',')
+    term1related.append(term1)
+    term2related.append(term2)
+    print term1related, term2related
     for line in response:
         
         line = json.loads(line)
         line = line['text'].encode('utf-8').strip().lower()
         charsToRemove = string.punctuation
         line = ''.join(ch for ch in line if ch not in charsToRemove)
-        if term1 in line and term2 in line:
-            continue
-        if term1 in line: 
-            term1buf.append(line)
-        if term2 in line: 
-            term2buf.append(line)
+        
+        for t1 in term1related:
+            if t1 in line:
+                term1buf.append(line)  
+        for t2 in term2related:
+            if t2 in line:
+                term2buf.append(line)                
+
         
 def returnBuf():
     global term1buf 

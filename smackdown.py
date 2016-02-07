@@ -13,17 +13,14 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-# term1={"term": "happy", "desc": "Happy"}
-# term2={"term": "sad", "desc": "Sad"}
 
-term1={"term": "panthers", "related":"carolina, ", "desc": "Carolina Panthers"}
-term2={"term": "broncos", "desc": "Denver Broncos"}
+term1={"term": "panthers", "related":"carolina,newton,norman", "desc": "Carolina Panthers"}
+term2={"term": "broncos", "related":"denver,manning,miller", "desc": "Denver Broncos"}
 
 # term1={"term": "trump", "desc": "Donald Trump"}
-# term1={"term": "clinton", "desc": "Hillary Clinton"}
-
-# term1={"term": "carson", "desc": "Ben Carson"}
 # term2={"term": "cruz", "desc": "Ted Cruz"}
+
+# term1={"term": "clinton", "desc": "Hillary Clinton"}
 
 meter = 50.0
 smackDict = smack_score.build_dict()
@@ -73,7 +70,7 @@ def getTerms():
 
 if __name__ == "__main__":
 
-    t= threading.Thread(target=TweetCollecting.fetch_samples, args = (term1["term"], term2["term"]))
+    t= threading.Thread(target=TweetCollecting.fetch_samples, args = (term1["term"], term1["related"], term2["term"], term2["related"]))
     t.daemon = True
     t.start()
     t1= threading.Thread(target=getTerms)

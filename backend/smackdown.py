@@ -5,16 +5,17 @@ from TweetCollecting import fetch_samples
 import smack_score
 import scorekeeping
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
 term1="trump"
 term2="beyonce"
 term1score = 0.0
 term2score = 0.0
 meter = 50.0
+smackDict = smack_score.build_dict()
 
 # Starts a basic page, fetching samples
-@app.route("/")
+# @app.route("/")
 def basicTerms():
     t = threading.Thread(target=getTerms)
     t.daemon = True
@@ -24,15 +25,15 @@ def basicTerms():
 # Simple, calls fetch_samples, should be in a Thread
 def getTerms():
     print("Starting fetching...")
-    smackDict = smack_score.build_dict()
+    global term1score, term2score
+    
     while(True):
-	    term1buf, term2buf = fetch_samples(term1, term2)
+	    term1Buf, term2Buf = fetch_samples(term1, term2)
 	    for tweet in term1Buf:
-	    	score = smack_score.calc_smack_score(tweet, smackDict)
-	    	term1score +=score
+	    	term1score += smack_score.calc_smack_score(tweet, smackDict)
+
 	    for tweet in term2Buf:
-	    	score = smack_score.calc_smack_score(tweet, smackDict)
-	    	term2score +=score
+	    	term2score += smack_score.calc_smack_score(tweet, smackDict)
 
 	    meter = scorekeeping.add_score(term1score, term2score)
 	    print meter

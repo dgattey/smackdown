@@ -21,6 +21,7 @@ history = []		# this is an array of tuples
 def add_score(score_a, score_b):
 	# check to see if it's been more than an interval since the last update
 	# if it's been longer than an interval, need to update the score table
+	print "add score"
 	global last_update
 	global score_table_a
 	global score_table_b
@@ -48,7 +49,8 @@ def score_now(time):
 		b += score_table_b[i]
 	a = float(a)
 	b = float(b)
-	score = ((b/(a+b))*100)
+	if a+b==0: score = 50.0
+	else: score = ((b/(a+b))*100)
 	history.append((time, score))
 	return score
 

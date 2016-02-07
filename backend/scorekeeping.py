@@ -3,7 +3,7 @@ import sys
 import time
 
 
-
+historylen = 1000
 # number of tweets, and number of scores. 
 num_intervals = 3 	# how many time intervals do we keep data for?
 interval = 60 		# start using 1 minute as a time interval
@@ -52,6 +52,9 @@ def score_now(time):
 	global history
 	if a+b==0: score = 50.0
 	else: score = ((b/(a+b))*100)
+	if len(history) > historylen:
+		history = history[1::3]
+
 	history.append((time, score))
 	return score
 

@@ -3,7 +3,7 @@
 		appComponent = ng.core.Component({
 			selector: 'smack-app',
 			templateUrl: 'app/app.html',
-			directives: [Meter]
+			directives: [Meter, History]
 		})
 		.Class({
 			constructor: function() {}

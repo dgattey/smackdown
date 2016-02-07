@@ -19,7 +19,7 @@ def calc_smack_score(tweet, smack_dict):
 		if w in smack_dict:
 			wordscore = smack_dict[w]
 			score += wordscore
-	return abs(score)
+	return score
 
 ### Returns a dictionary of words with negative sentiment (smackers)
 def build_dict():
@@ -29,6 +29,5 @@ def build_dict():
 		if len(line.split())==2:
 			word = line.split()[0]
 			score = float(line.split()[1])
-			if score < 0:
-				smack_dict[word] = score
+			smack_dict[word] = score
 	return smack_dict

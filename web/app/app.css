@@ -38,9 +38,18 @@ h1 {
 
 .title h1 span {
 	float:right;
-	font-size:0.5em;
+	font-size:0.3em;
 	margin-right:10px;
+}
+
+.title h1 a {
+	text-decoration: none;
 	color:rgba(255,255,255,0.7);
+}
+
+.title h1 a:hover {
+	text-decoration: underline;
+	color:rgba(255,255,255,0.8);
 }
 
 /* Meter */

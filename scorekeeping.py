@@ -49,7 +49,6 @@ def score_now(time):
 		b += score_table_b[i]
 	a = float(a)
 	b = float(b)
-	score = ((b/(a+b))*100)
 	global history
 	if a+b==0: score = 50.0
 	else: score = ((b/(a+b))*100)

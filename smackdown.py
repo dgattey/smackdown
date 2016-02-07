@@ -7,16 +7,19 @@ import smack_score
 import scorekeeping
 
 
-# app = Flask(__name__)
+app = Flask(__name__)
 
-term1="republican"
-term2="democrat"
+term1="trump"
+term2="cruz"
 
 meter = 50.0
 smackDict = smack_score.build_dict()
 
 # Starts a basic page, fetching samples
-# @app.route("/")
+@app.route("/score")
+def retstr():
+	return str(meter)
+
 def basicTerms():
     t = threading.Thread(target=getTerms)
     t.daemon = True
@@ -26,7 +29,7 @@ def basicTerms():
 # Simple, calls fetch_samples, should be in a Thread
 def getTerms():
     print("Starting fetching...")
-    
+    global meter
     while(True):
 
 		term1score = 0.0
@@ -45,9 +48,14 @@ def getTerms():
 
 
 if __name__ == "__main__":
-    # port = int(os.environ.get("PORT", 5000))
-    # app.run(host='0.0.0.0', port=port)
+
     t= threading.Thread(target=TweetCollecting.fetch_samples, args = (term1, term2))
     t.daemon = True
     t.start()
-    getTerms()
+    t1= threading.Thread(target=getTerms)
+    t1.daemon = True
+    t1.start()
+
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+    

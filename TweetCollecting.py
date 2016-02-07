@@ -69,6 +69,8 @@ def fetch_samples(term1, term2):
         
         line = json.loads(line)
         line = line['text'].encode('utf-8').strip().lower()
+        charsToRemove = string.punctuation
+        line = ''.join(ch for ch in line if ch not in charsToRemove)
         if term1 in line and term2 in line:
             continue
         if term1 in line: 
